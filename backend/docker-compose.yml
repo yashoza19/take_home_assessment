@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: yashoza19/my-sql
+    restart: always
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - ./db:/var/lib/mysql
+  # Names our volume
+
+  web:
+    build: .
+    command: python3 manage.py runserver --noreload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/my_app_dir
+      - /tmp/app/mysqld:/run/mysqld
+    depends_on:
+      - db
+
+volumes:
+  my-db:
