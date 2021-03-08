@@ -5,4 +5,3 @@ WORKDIR /my_app_dir
 COPY . /my_app_dir
 RUN pip install -r requirements.txt
 RUN ls
-CMD ["python3","manage.py", "runserver","0.0.0.0:8000","--noreload"]

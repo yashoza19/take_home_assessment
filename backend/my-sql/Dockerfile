@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:5.7
 # Add a database
 ENV MYSQL_DATABASE employees
 # Add the content of the sql-scripts/ directory to your image
